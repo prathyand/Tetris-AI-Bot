@@ -1,7 +1,3 @@
-# Simple quintris program! v0.2
-# D. Crandall, Sept 2021
-#submission by: Prathmesh Deshmukh["pdeshmuk"]
-
 from AnimatedQuintris import *
 from SimpleQuintris import *
 from kbinput import *
@@ -169,31 +165,11 @@ def successor0(quintris):
     
     
 class ComputerPlayer:
-    # This function should generate a series of commands to move the piece into the "optimal"
-    # position. The commands are a string of letters, where b and m represent left and right, respectively,
-    # and n rotates. quintris is an object that lets you inspect the board, e.g.:
-    #   - quintris.col, quintris.row have the current column and row of the upper-left corner of the 
-    #     falling piece
-    #   - quintris.get_piece() is the current piece, quintris.get_next_piece() is the next piece after that
-    #   - quintris.left(), quintris.right(), quintris.down(), and quintris.rotate() can be called to actually
-    #     issue game commands
-    #   - quintris.get_board() returns the current state of the board, as a list of strings.
-    #
     def get_moves(self, quintris):
         # super simple current algorithm: just randomly move left, right, and rotate a few times
         mymove=successor0(quintris)[0]
         return mymove
-       
-    # This is the version that's used by the animted version. This is really similar to get_moves,
-    # except that it runs as a separate thread and you should access various methods and data in
-    # the "quintris" object to control the movement. In particular:
-    #   - quintris.col, quintris.row have the current column and row of the upper-left corner of the 
-    #     falling piece
-    #   - quintris.get_piece() is the current piece, quintris.get_next_piece() is the next piece after that
-    #   - quintris.left(), quintris.right(), quintris.down(), and quintris.rotate() can be called to actually
-    #     issue game commands
-    #   - quintris.get_board() returns the current state of the board, as a list of strings.
-    #
+
     def control_game(self, quintris):
         # another super simple algorithm: just move piece to the least-full column
         while 1:
